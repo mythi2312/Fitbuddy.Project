@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitBuddy - AI Fitness Plan Generator</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111827;
+            color: white;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 650px;
+            margin: 30px auto;
+        }
+
+        .card {
+            background: #1f2937;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #9ca3af;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            background: #374151;
+            color: white;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #22c55e;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #16a34a;
+        }
+
+        .admin {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #60a5fa;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>🏋️ FitBuddy</h1>
+
+        <p class="subtitle">
+            AI Fitness Plan Generator
+        </p>
+
+        <form action="/generate-workout" method="post">
+
+            <label>Username</label>
+            <input
+                type="text"
+                name="username"
+                placeholder="Enter your name"
+                required
+            >
+
+            <label>User ID</label>
+            <input
+                type="number"
+                name="user_id"
+                placeholder="Enter user ID"
+                required
+            >
+
+            <label>Age</label>
+            <input
+                type="number"
+                name="age"
+                placeholder="Enter your age"
+                min="1"
+                required
+            >
+
+            <label>Weight (kg)</label>
+            <input
+                type="number"
+                name="weight"
+                placeholder="Enter your weight"
+                step="0.1"
+                min="1"
+                required
+            >
+
+            <label>Fitness Goal</label>
+            <select name="goal" required>
+                <option value="">Select your goal</option>
+                <option value="Weight Loss">Weight Loss</option>
+                <option value="Muscle Gain">Muscle Gain</option>
+                <option value="Strength">Strength</option>
+                <option value="General Fitness">General Fitness</option>
+                <option value="Flexibility">Flexibility</option>
+            </select>
+
+            <label>Workout Intensity</label>
+            <select name="intensity" required>
+                <option value="">Select intensity</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+            </select>
+
+            <button type="submit">
+                Generate My 7-Day Plan 🚀
+            </button>
+
+        </form>
+
+        <a class="admin" href="/view-all-users">
+            Admin - View All Users
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
