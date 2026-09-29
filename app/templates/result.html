@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FitBuddy - Your Plan</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111827;
+            color: white;
+        }
+
+        .container {
+            width: 94%;
+            max-width: 850px;
+            margin: 25px auto;
+        }
+
+        .card {
+            background: #1f2937;
+            padding: 25px;
+            border-radius: 18px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            color: #4ade80;
+        }
+
+        .user-info {
+            line-height: 1.8;
+            color: #d1d5db;
+        }
+
+        .plan {
+            background: #111827;
+            padding: 20px;
+            border-radius: 12px;
+            white-space: pre-wrap;
+            line-height: 1.7;
+            overflow-x: auto;
+        }
+
+        .tip {
+            background: #064e3b;
+            padding: 18px;
+            border-radius: 12px;
+            line-height: 1.6;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: #374151;
+            color: white;
+            font-size: 16px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #22c55e;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        .message {
+            background: #065f46;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>🏋️ Your FitBuddy Plan</h1>
+
+        {% if message %}
+        <div class="message">
+            {{ message }}
+        </div>
+        {% endif %}
+
+        <h2>👤 Your Details</h2>
+
+        <div class="user-info">
+            <strong>Name:</strong> {{ username }}<br>
+            <strong>User ID:</strong> {{ user_id }}<br>
+            <strong>Age:</strong> {{ age }}<br>
+            <strong>Weight:</strong> {{ weight }} kg<br>
+            <strong>Goal:</strong> {{ goal }}<br>
+            <strong>Intensity:</strong> {{ intensity }}
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>📅 7-Day AI Workout Plan</h2>
+
+        <div class="plan">{{ workout_plan }}</div>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>🥗 Nutrition / Recovery Tip</h2>
+
+        <div class="tip">
+            {{ nutrition_tip }}
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>💬 Give Feedback</h2>
+
+        <p>
+            Tell FitBuddy what you want to change in your workout plan.
+        </p>
+
+        <form action="/submit-feedback" method="post">
+
+            <input
+                type="hidden"
+                name="user_id"
+                value="{{ user_id }}"
+            >
+
+            <textarea
+                name="feedback"
+                placeholder="Example: Make Day 2 easier..."
+                required
+            ></textarea>
+
+            <button type="submit">
+                Update My Plan 🤖
+            </button>
+
+        </form>
+
+        <a class="back" href="/">
+            ← Create Another Plan
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
