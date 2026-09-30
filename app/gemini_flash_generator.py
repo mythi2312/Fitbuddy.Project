@@ -7,8 +7,7 @@ genai.configure(
 
 model = genai.GenerativeModel(
     os.getenv(
-        "GEMINI_FLASH_MODEL",
-        "gemini-2.5-flash"
+        "gemini-3-flash-preview"
     )
 )
 
