@@ -5,11 +5,7 @@ genai.configure(
     api_key=os.getenv("GOOGLE_API_KEY")
 )
 
-model = genai.GenerativeModel(
-    os.getenv(
-        "gemini-3-flash-preview"
-    )
-)
+model = genai.GenerativeModel("gemini-3-flash-preview")
 
 
 def generate_workout_gemini(user_input):
